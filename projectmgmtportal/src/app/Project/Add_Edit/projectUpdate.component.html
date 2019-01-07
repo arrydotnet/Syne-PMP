@@ -1,0 +1,41 @@
+<h2 class="text-info"> {{this.EditID.length ?'Edit':'Add' }} Project</h2>
+<hr>
+<form [formGroup]="AddEditForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+        <label for="name">Project ID</label>
+        <input type="number" step="1" min="500"  minlength="3"  formControlName="project_id" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.project_id.errors }" />
+        <div *ngIf="submitted && f.project_id.errors" class="invalid-feedback">
+            <div *ngIf="f.project_id.errors.required">Project ID is required</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="project_name">Project Title</label>
+        <input type="text" formControlName="project_name" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.project_name.errors }" />
+        <div *ngIf="submitted && f.project_name.errors" class="invalid-feedback">
+            <div *ngIf="f.project_name.errors.required">Project Title is required</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="desc">Desc</label>
+        <input type="text" formControlName="desc" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.desc.errors }" />
+    </div>
+    <div class="form-group">
+        <label for="completed">Completed</label> <br>
+        <input type="checkbox" formControlName="completed"  [ngClass]="{ 'is-invalid': submitted && f.completed.errors }" />
+        <div *ngIf="submitted && f.completed.errors" class="invalid-feedback">
+            <div *ngIf="f.completed.errors.required">Status is required</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="startdate">Start Date</label>
+        <input type="date" formControlName="startdate" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.startdate.errors }" />
+    </div>
+    <div class="form-group">
+        <label for="enddate">End Date</label>
+        <input type="date" formControlName="enddate" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.enddate.errors }" />
+    </div>
+    <div class="form-group">
+        <button [disabled]="loading" class="btn btn-primary">Save</button>
+       <a href="javscript:void(0)" (click)="onClose()" >Close</a>
+    </div>
+</form>

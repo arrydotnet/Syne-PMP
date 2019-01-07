@@ -1,0 +1,71 @@
+<hr>
+<h3>Project: {{projectTitle}}</h3>
+<h3>User Stories</h3>
+<hr>
+<div class="mat-elevation-z8">
+
+  <table mat-table [dataSource]="dataSource">
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="_id">
+      <th mat-header-cell *matHeaderCellDef>SID</th>
+      <td mat-cell *matCellDef="let element"> {{ element._id }} </td>
+    </ng-container>
+    <!-- Name Column -->
+    <ng-container matColumnDef="storyID">
+      <th mat-header-cell *matHeaderCellDef>Story ID </th>
+      <td mat-cell *matCellDef="let element"> {{element.storyID}} </td>
+    </ng-container>
+    <!-- Name Column -->
+    <!-- <ng-container matColumnDef="project_id">
+      <th mat-header-cell *matHeaderCellDef>Project ID </th>
+      <td mat-cell *matCellDef="let element"> {{element.project_id}} </td>
+    </ng-container> -->
+    <!-- Name Column -->
+    <ng-container matColumnDef="story_title">
+      <th mat-header-cell *matHeaderCellDef>Story Title </th>
+      <td mat-cell *matCellDef="let element"> {{element.story_title}} </td>
+    </ng-container>
+    <ng-container matColumnDef="desc">
+      <th mat-header-cell *matHeaderCellDef>Desc</th>
+      <td mat-cell *matCellDef="let element"> {{element.desc}} </td>
+    </ng-container>
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="completed">
+      <th mat-header-cell *matHeaderCellDef>Status </th>
+      <td mat-cell *matCellDef="let element"> {{element.completed ? 'InProgress' :'Complete'}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="startdate">
+      <th mat-header-cell *matHeaderCellDef>Start Date </th>
+      <td mat-cell *matCellDef="let element"> {{element.startdate }} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="enddate">
+      <th mat-header-cell *matHeaderCellDef>End Date </th>
+      <td mat-cell *matCellDef="let element"> {{element.enddate }} </td>
+    </ng-container>
+    <ng-container matColumnDef="storyPoints">
+      <th mat-header-cell *matHeaderCellDef>Story Points</th>
+      <td mat-cell *matCellDef="let element"> {{element.storyPoints }} </td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef>Actions</th>
+      <td mat-cell *matCellDef="let element">
+        <input type="button" value="Add/Edit/View Task(s)" (click)="ViewTask(element._id)">&nbsp;
+        <input type="button" value="Edit" (click)="OpenEditPopup(element._id)">&nbsp;
+        <input type="button" value="Delete" mat-raised-button (click)="ConfirmDelete(element._id)">&nbsp;
+        <!-- <button mat-button (click)="ConfirmDelete(element._id)">
+          <mat-icon>delete</mat-icon>
+      </button> -->
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+</div>

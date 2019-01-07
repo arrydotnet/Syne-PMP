@@ -1,0 +1,46 @@
+<h2 class="text-info"> {{this.EditID.length ?'Edit':'Add' }} Task</h2>
+<hr>
+<form [formGroup]="AddEditForm" (ngSubmit)="onSubmit()">
+
+    <div class="form-group">
+        <label for="task_title">Task Title</label>
+        <input type="text" formControlName="task_title" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.task_title.errors }" />
+        <div *ngIf="submitted && f.task_title.errors" class="invalid-feedback">
+            <div *ngIf="f.task_title.errors.required">Task Title is required</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="desc">Desc</label>
+        <input type="text" formControlName="desc" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.desc.errors }" />
+    </div>
+    <div class="form-group">
+        <label for="completed">Completed</label> <br>
+        <input type="checkbox" formControlName="completed" [ngClass]="{ 'is-invalid': submitted && f.completed.errors }" />
+        <div *ngIf="submitted && f.completed.errors" class="invalid-feedback">
+            <div *ngIf="f.completed.errors.required">Status is required</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="startdate">Start Date</label>
+        <input type="date" formControlName="startdate" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.startdate.errors }" />
+    </div>
+    <div class="form-group">
+        <label for="enddate">End Date</label>
+        <input type="date" formControlName="enddate" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.enddate.errors }" />
+    </div>
+    <div class="form-group">
+        <label for="assignedTo">Assigned To</label>
+        <input type="text" formControlName="assignedTo" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.assignedTo.errors }" />
+        <!-- <mat-form-field>
+            <mat-select placeholder="Select">
+                <mat-option *ngFor="let emp of empList" [_id]="emp._id">
+                    {{emp.name}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field> -->
+    </div>
+    <div class="form-group">
+        <button [disabled]="loading" class="btn btn-primary">Save</button>
+        <a href="javscript:void(0)" (click)="onClose()">Close</a>
+    </div>
+</form>

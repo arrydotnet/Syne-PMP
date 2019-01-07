@@ -1,0 +1,43 @@
+{"name" : "AAAAA" ,"designation": "Lead technology1", "disabled": false ,"pwd": "1234"}
+{"name" : "BBBBB" ,"designation": "Lead technology2", "disabled": false,"pwd": "1234"}
+{"name" : "CCCC" ,"designation": "Lead technology3", "disabled": false,"pwd": "1234"}
+{"name" : "DDD" ,"designation": "Lead technology3", "disabled": false,"pwd": "1234"}
+{"name" : "EEE" ,"designation": "Lead technology3", "disabled": false,"pwd": "1234"}
+{"name" : "FFF" ,"designation": "Lead technology3", "disabled": false,"pwd": "1234"}
+
+
+{"project_id":100, "project_name" : "Project 1" ,"desc": "Harley", "completed": false ,"startdate":'01/01/2017', "enddate":'01/01/2018' }
+{"project_id":200, "project_name" : "Project 2" ,"desc": "Kellogs", "completed": false,"startdate":'01/01/2017', "enddate":'01/01/2018' }
+{"project_id":300, "project_name" : "Project 3" ,"desc": "Electrolux", "completed": false,"startdate":'01/01/2017', "enddate":'01/01/2018' }
+
+bug
+{"bugID":55, "project_id":100, "bug_title" : "Bug 1" ,"desc": "Bug", "completed": false ,"startdate":'01/01/2017', "enddate":'01/01/2018' }
+{"bugID":56, "project_id":100, "bug_title" : "Bug 2" ,"desc": "Bug", "completed": false ,"startdate":'01/01/2017', "enddate":'01/01/2018' }
+{"bugID":57, "project_id":200, "bug_title" : "Bug 1" ,"desc": "Bug", "completed": false ,"startdate":'01/01/2017', "enddate":'01/01/2018' }
+{"bugID":58, "project_id":300, "bug_title" : "Bug 1" ,"desc": "Bug", "completed": false ,"startdate":'01/01/2017', "enddate":'01/01/2018' }
+
+//projectUserStories
+{"storyID":1, "projectID":ObjectId("5c235591d4416dc4ddb1a7a5"), "story_title" : "story 1" ,"desc": "story", "completed": false ,"startDate":'01/01/2017', "endDate":'01/01/2018' ,"storyPoints" :5 }
+{"storyID":2, "projectID":ObjectId("5c235591d4416dc4ddb1a7a5"), "story_title" : "story 2" ,"desc": "story", "completed": false ,"startdate":'01/01/2017', "enddate":'01/01/2018' ,"storyPoints" :5 }
+{"storyID":3, "projectID":ObjectId("5c235591d4416dc4ddb1a7a5"), "story_title" : "story 1" ,"desc": "story", "completed": false ,"startdate":'01/01/2017', "enddate":'01/01/2018' ,"storyPoints" :5 }
+{"storyID":4, "projectID":ObjectId("5c235591d4416dc4ddb1a7a5"), "story_title" : "story 1" ,"desc": "story", "completed": false ,"startdate":'01/01/2017', "enddate":'01/01/2018',"storyPoints" :5 }
+
+//UserStoryTasks
+{"project_id": "5c235591d4416dc4ddb1a7a5","storyID":"5c2cc68c2275ce13f471ac7d","task_title" : "task 1" ,"desc": "task", "completed": false ,"startdate":'01/01/2017', "enddate":'01/01/2018', "assignedTo":'' }
+ 
+
+
+{"storyTaskID":1100, "project_id":100, "task_title" : "task 1" ,"desc": "task", "completed": false ,"startdate":'01/01/2017', "enddate":'01/01/2018' }
+{"storyTaskID":1101, "project_id":100, "task_title" : "task 2" ,"desc": "task", "completed": false ,"startdate":'01/01/2017', "enddate":'01/01/2018' }
+{"storyTaskID":1102, "project_id":200, "task_title" : "task 1" ,"desc": "task", "completed": false ,"startdate":'01/01/2017', "enddate":'01/01/2018' }
+{"storyTaskID":1103, "project_id":300, "task_title" : "task 1" ,"desc": "task", "completed": false ,"startdate":'01/01/2017', "enddate":'01/01/2018'}
+
+projectAllocation
+{ "project_id":100, "employeeID": ObjectId("5c2359a9d4416dc4ddb1a9b9") }
+{ "project_id":100, "employeeID": ObjectId("5c2359a9d4416dc4ddb1a9bb") }
+{ "project_id":100, "employeeID": ObjectId("5c23838cd4416dc4ddb1bf54") }
+
+
+"C:\Program Files\MongoDB\Server\3.2\bin\mongod.exe" --dbpath C:\ArvindSinghChandel\Angualr\Day6-App\PMP\NodeAPIServer\data
+
+C:\Program Files\MongoDB\Server\4.0\bin mongod --dbpath E:\Dropbox\Projects\Angular2\SyneTraining\Angular\MYAssignment\PravenAssignement\MY\NodeAPIServer\data

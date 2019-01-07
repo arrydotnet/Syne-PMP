@@ -1,0 +1,48 @@
+What are Route Guards? (Angular Authentication:)
+Angular’s route guards are interfaces which can tell the router whether or not 
+it should allow navigation to a requested route. 
+There are five different types of guards
+-CanActivate
+-CanActivateChild
+-CanDeactivate
+-CanLoad
+-Resolve
+
+ canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
+        let url: string = state.url;
+	console.log('Url:'+ url);
+	if (this.authService.isUserLoggedIn()) {
+		return true; 
+	}
+        this.authService.setRedirectUrl(url);
+        this.router.navigate([ this.authService.getLoginUrl() ]);
+	return false;
+  }
+  canActivateChild(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
+        let loggedInUser= this.authService.getLoggedInUser();
+	if (loggedInUser.role === 'ADMIN') {
+	        return true;		
+	} else {
+		console.log('Unauthorized to open link: '+ state.url);
+		return false;
+	}
+  }  
+  const articleRoutes: Routes = [
+    { 	  
+	  path: '',
+	  component: ArticleComponent,
+	  children: [ 
+		{
+		   path: 'list',
+		   component: ArticleListComponent,
+	           canActivateChild: [ AuthGuardService ],			
+		   children: [
+			{
+			   path: ':id',
+			   component: ArticleEditComponent
+			}
+		   ]			
+		}
+	  ]
+    }
+];

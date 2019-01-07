@@ -1,0 +1,49 @@
+<h2 class="text-info"> {{this.UserStoryEditID.length ?'Edit':'Add' }} User Story</h2>
+ <hr>
+<form [formGroup]="AddEditForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+        <label for="name">Story ID</label>
+        <input type="number" step="1" min="500"  minlength="3"  formControlName="storyID" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.storyID.errors }" />
+        <div *ngIf="submitted && f.storyID.errors" class="invalid-feedback">
+            <div *ngIf="f.storyID.errors.required">Story ID is required</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="story_title">Story Title</label>
+        <input type="text" formControlName="story_title" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.story_title.errors }" />
+        <div *ngIf="submitted && f.story_title.errors" class="invalid-feedback">
+            <div *ngIf="f.story_title.errors.required">Story Title is required</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="desc">Desc</label>
+        <input type="text" formControlName="desc" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.desc.errors }" />
+    </div>
+    <div class="form-group">
+        <label for="completed">Completed</label> <br>
+        <input type="checkbox" formControlName="completed"  [ngClass]="{ 'is-invalid': submitted && f.completed.errors }" />
+        <div *ngIf="submitted && f.completed.errors" class="invalid-feedback">
+            <div *ngIf="f.completed.errors.required">Status is required</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="startdate">Start Date</label>
+        <input type="date" formControlName="startdate" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.startdate.errors }" />
+    </div>
+    <div class="form-group">
+        <label for="enddate">End Date</label>
+        <input type="date" formControlName="enddate" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.enddate.errors }" />
+    </div>
+    <div class="form-group">
+        <label for="storyPoints">Story Points</label>
+        <input type="number" step="1" min="500"  minlength="3"  formControlName="storyPoints" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.storyPoints.errors }" />
+        <div *ngIf="submitted && f.storyPoints.errors" class="invalid-feedback">
+            <div *ngIf="f.storyPoints.errors.required">Story points is required</div>
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <button [disabled]="loading" class="btn btn-primary">Save</button>
+       <a href="javscript:void(0)" (click)="onClose()" >Close</a>
+    </div>
+</form>

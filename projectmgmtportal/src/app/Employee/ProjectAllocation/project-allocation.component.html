@@ -1,0 +1,26 @@
+<hr>
+<h3>Project Allocation</h3>
+<hr>
+<div class="mat-elevation-z8">
+  <h4>UserName: {{data.name}}</h4>
+</div>
+
+<div class="mat-elevation-z8">
+  Projects:
+  <mat-selection-list #selectedProj  [(ngModel)]="selectedOptions" (ngModelChange)="onNgModelChange($event)">
+    <mat-list-option *ngFor="let item of projectList" [value]="item.project_id" 
+    [selected]="item.allocated" >
+      ProjectID:{{item.project_id}}- [{{item.project_name}}]  
+  </mat-selection-list>
+
+  <div *ngIf="!projectList">No Projects Availble</div>
+</div>
+<div>
+  <div class="form-group">
+    <button [disabled]="!projectList" (click)="onSave()"  class="btn btn-primary">Save</button>
+    <a href="javscript:void(0)" (click)="onClose()">Close</a>
+  </div>
+</div>
+<p>
+  Project(s) selected: {{selectedProj.selectedOptions.selected.length}}
+</p>
