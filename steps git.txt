@@ -1,0 +1,10 @@
+//create gitgnore
+ touch .gitignore
+//write  /node_moudules in it
+
+git add *
+git commit -m "Syne Assignement"
+git remote add origin https://github.com/arrydotnet/Syne-PMP.git
+git push origin master
+
+http://rogerdudler.github.io/git-guide/
