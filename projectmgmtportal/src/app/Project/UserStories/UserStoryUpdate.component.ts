@@ -17,6 +17,8 @@ export class UserStoryUpdateComponent implements OnInit {
     EditID: string;//if empty then add else edit
     UserStory: iUserStory;
     UserStoryEditID:string;
+    isCancelled: boolean;
+
     constructor(
         public snackBar: MatSnackBar,
         private projectService: ProjectService,
@@ -28,12 +30,11 @@ export class UserStoryUpdateComponent implements OnInit {
         @Inject(MAT_DIALOG_DATA) public data: any) {
         this.EditID = '';
         this.UserStoryEditID = '';
-
+        this.isCancelled = false;
         this.UserStory = {} as iUserStory;
     }
 
     ngOnInit() {
-        debugger;
         this.AddEditForm = this.formBuilder.group({ //  projectID: string;//ObjectId from page
             storyID: [0, Validators.required],
             story_title: ['', Validators.required],
@@ -67,6 +68,9 @@ export class UserStoryUpdateComponent implements OnInit {
     // convenience getter for easy access to form fields
     get f() { return this.AddEditForm.controls; }
     onSubmit() {
+        if(this.isCancelled){
+            return;
+        }
         this.submitted = true;
         // stop here if form is invalid
         if (this.AddEditForm.invalid) {
@@ -99,6 +103,7 @@ export class UserStoryUpdateComponent implements OnInit {
         this.loading = true;
     }
     onClose() {
+        this.isCancelled=true;
         this.dialogRef.close();
     }
     ShowMsg(msg: string) {

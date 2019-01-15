@@ -21,6 +21,7 @@ export class TaskUpdateComponent implements OnInit {
     PID: string;
     SID: string;
     empList: iEmployee[];
+    isCancelled: boolean;
     constructor(
         public snackBar: MatSnackBar,
         private projectService: ProjectService,
@@ -36,6 +37,7 @@ export class TaskUpdateComponent implements OnInit {
         this.SID = '';
         this.Task = {} as iTask;
         this.empList = [];
+        this.isCancelled = false;
     }
 
     ngOnInit() {
@@ -78,6 +80,9 @@ export class TaskUpdateComponent implements OnInit {
     // convenience getter for easy access to form fields
     get f() { return this.AddEditForm.controls; }
     onSubmit() {
+        if(this.isCancelled){
+            return;
+        }
         this.submitted = true;
         // stop here if form is invalid
         if (this.AddEditForm.invalid) {
@@ -108,6 +113,7 @@ export class TaskUpdateComponent implements OnInit {
         this.loading = true;
     }
     onClose() {
+        this.isCancelled = true;
         this.dialogRef.close();
     }
     ShowMsg(msg: string) {

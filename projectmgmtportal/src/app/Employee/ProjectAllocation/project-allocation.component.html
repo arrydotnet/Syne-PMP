@@ -17,8 +17,10 @@
 </div>
 <div>
   <div class="form-group">
-    <button [disabled]="!projectList" (click)="onSave()"  class="btn btn-primary">Save</button>
-    <a href="javscript:void(0)" (click)="onClose()">Close</a>
+    <button [disabled]="!projectList" (click)="onSave()"  class="btn btn-primary">Save</button>&nbsp;&nbsp;
+    <button  class="btn btn-warning" (click)="onClose()">Close</button>
+
+    <!-- <a href="javscript:void(0)" (click)="onClose()">Close</a> -->
   </div>
 </div>
 <p>

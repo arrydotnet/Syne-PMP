@@ -16,6 +16,7 @@ export class ProjectUpdateComponent implements OnInit {
     loading = false;
     EditID: string;//if empty then add else edit
     Project: iProject;
+    isCancelled:boolean;
     constructor(
         public snackBar: MatSnackBar,
         private projectService: ProjectService,
@@ -27,6 +28,7 @@ export class ProjectUpdateComponent implements OnInit {
         @Inject(MAT_DIALOG_DATA) public data: any) {
         this.EditID = '';
         this.Project = {} as iProject;
+        this.isCancelled=false;
     }
 
     ngOnInit() {
@@ -57,8 +59,10 @@ export class ProjectUpdateComponent implements OnInit {
     }
     // convenience getter for easy access to form fields
     get f() { return this.AddEditForm.controls; }
-    onSubmit() {
-        debugger;
+    onSubmit() {        
+        if (this.isCancelled) {
+            return;
+        }
         this.submitted = true;
         // stop here if form is invalid
         if (this.AddEditForm.invalid) {
@@ -88,6 +92,7 @@ export class ProjectUpdateComponent implements OnInit {
         this.loading = true;
     }
     onClose() {
+        this.isCancelled = true;
         this.dialogRef.close();
     }
     ShowMsg(msg: string) {

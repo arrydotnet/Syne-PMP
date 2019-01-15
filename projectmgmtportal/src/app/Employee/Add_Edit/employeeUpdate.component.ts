@@ -17,6 +17,7 @@ export class EmployeeUpdateComponent implements OnInit {
     loading = false;
     EditID: string;//if empty then add else edit
     Employee: iEmployee;
+    isCancelled: boolean;
     constructor(
         public snackBar: MatSnackBar,
         private empService: EmployeeService,
@@ -28,6 +29,7 @@ export class EmployeeUpdateComponent implements OnInit {
         @Inject(MAT_DIALOG_DATA) public data: any) {
         this.EditID = '';
         this.Employee = {} as iEmployee;
+        this.isCancelled = false;
     }
 
     ngOnInit() {
@@ -55,6 +57,9 @@ export class EmployeeUpdateComponent implements OnInit {
     // convenience getter for easy access to form fields
     get f() { return this.AddEditForm.controls; }
     onSubmit() {
+        if(this.isCancelled){
+            return;
+        }
         this.submitted = true;
         // stop here if form is invalid
         if (this.AddEditForm.invalid) {
@@ -81,6 +86,7 @@ export class EmployeeUpdateComponent implements OnInit {
         this.loading = true;
     }
     onClose() {
+        this.isCancelled = true;
         this.dialogRef.close();
     }
     ShowMsg(msg: string) {
