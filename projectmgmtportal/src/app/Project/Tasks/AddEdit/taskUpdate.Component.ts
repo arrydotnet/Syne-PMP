@@ -96,7 +96,7 @@ export class TaskUpdateComponent implements OnInit {
         this.Task.startdate = this.f.startdate.value;
         this.Task.enddate = this.f.enddate.value;
         this.Task.assignedTo = this.f.assignedTo.value;
-        if (this.EditID.length > 0) {
+        if (this.EditID) {
             this.Task._id = this.EditID;
             this.projectService.UpdateTask(this.Task).subscribe((data) => {
                 this.ShowMsg('Task has been added/updated sucessfully!');

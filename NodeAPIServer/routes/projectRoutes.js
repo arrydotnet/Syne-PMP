@@ -155,8 +155,8 @@ router.post('/projects/allocate/:id', function (req, res, next) {
     });
 });
 
-router.get('/projects/CounteAllocatedEmployee/', function (req, res, next) {
-    projectService.CounteAllocatedEmployee().then(function (data) {
+router.get('/projects/AllAllocatedEmployee/', function (req, res, next) {
+    projectService.AllAllocatedEmployee().then(function (data) {
         res.send(data);
     }, function (eMsg) {
         console.log('err!:', eMsg);
@@ -207,6 +207,14 @@ router.get('/projects/story/:pid', function (req, res, next) {
     console.log('enter:', pid);
 
     projectService.GetUserStoryByProjectId(pid).then(function (data) {
+        res.send(data);
+    }, function (eMsg) {
+        console.log('err!:', eMsg);
+    });
+});
+//api/projects/:pid
+router.get('/projects/story/', function (req, res, next) {
+    projectService.GetAllUserStory().then(function (data) {
         res.send(data);
     }, function (eMsg) {
         console.log('err!:', eMsg);

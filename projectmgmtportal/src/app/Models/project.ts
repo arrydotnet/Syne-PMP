@@ -7,7 +7,7 @@ export interface iProject {
     startdate: string;
     enddate: string;
     allocated?: boolean;//Only for project allocation no db save
-    hasUserStory?: boolean; 
+    hasUserStory?: boolean;
 }
 //projectAllocation
 export interface iAllocatedProject {
@@ -37,4 +37,9 @@ export interface iTask {
     startdate: string;
     enddate: string;
     assignedTo: string;
+}
+//UserStoryTasks
+export interface iCount {
+    AllAllocatedEmployee: number;
+    totalEmployees: number;
 }

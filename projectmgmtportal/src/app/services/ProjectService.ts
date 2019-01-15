@@ -44,12 +44,11 @@ export class ProjectService {
             pipe(catchError(this.handleError<any>('GetAllocatedProjectByEmployeeID')));
 
     }
-    CounteAllocatedEmployee() {
-        return this.http.get<Array<iAllocatedProject>>(this.baseUrl + "/projects/CounteAllocatedEmployee/").
-            pipe(catchError(this.handleError<any>('CounteAllocatedEmployee')));
-
+    GetAllAllocatedEmployee() {
+        return this.http.get<Array<iAllocatedProject>>(this.baseUrl + "/projects/AllAllocatedEmployee/").
+            pipe(catchError(this.handleError<any>('GetAllAllocatedEmployee')));
     }
-    
+
     GetAllBillableEmployeeAllocation(_id: number) {
         return this.http.get<Array<iAllocatedProject>>(this.baseUrl + "/projects/employee/").
             pipe(catchError(this.handleError<any>('GetAllBillableEmployeeAllocation')));
@@ -88,18 +87,24 @@ export class ProjectService {
         return this.http.get<iProject>(this.baseUrl + "/projects/story/delete/" + storyid).
             pipe(catchError(this.handleError<any>('DeleteUserStory')));
     }
+    GetAllOpenFinishedStories() {
+        return this.http.get<Array<iUserStory>>(this.baseUrl + "/projects/story/").
+            pipe(catchError(this.handleError<any>('GetAllOpenFinishedStories')));
+    }
+
+
     //UserStoryTasks
     //api/tasks/:pid/:sid/create/ 
     AddTask(task: iTask) {
-        var url = "/tasks/" + task.projectID + "/" + task.storyID+ "/create";
-        return this.http.post<iTask>(this.baseUrl + url , {
+        var url = "/tasks/" + task.projectID + "/" + task.storyID + "/create";
+        return this.http.post<iTask>(this.baseUrl + url, {
             task
         }).pipe(catchError(this.handleError<any>('AddTask')));
     }
     //api/tasks/:pid/:sid/update/:tid
     UpdateTask(task: iTask) {
-        var url = "/tasks/" + task.projectID + "/" + task.storyID+ "/update/" + task._id;
-        return this.http.post<iTask>(this.baseUrl + url , {
+        var url = "/tasks/" + task.projectID + "/" + task.storyID + "/update/" + task._id;
+        return this.http.post<iTask>(this.baseUrl + url, {
             task
         }).pipe(catchError(this.handleError<any>('UpdateTask')));
     }
@@ -111,7 +116,7 @@ export class ProjectService {
     //api/tasks/:pid/:sid
     GetAllTaskByStoryID(sid: string) {
         var url = "/tasks/story/" + sid;
-        return this.http.get<Array<iTask>>(this.baseUrl +url).
+        return this.http.get<Array<iTask>>(this.baseUrl + url).
             pipe(catchError(this.handleError<any>('GetAllTaskByStoryID')));
     }
     //api/tasks/delete/:taskid

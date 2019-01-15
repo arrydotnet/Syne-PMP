@@ -110,6 +110,76 @@ export class HighChartComponent implements OnInit {
 
                 break;
             }
+            case "OpenFinishedStories": {
+                this.dashBoardService.OpenFinishedStories().subscribe((seriesData: any) => {
+                    opts = {};
+                    opts = {
+                        title: {
+                            text: 'Active Inactive Stories',
+                            x: -20 //center
+                        },
+                        tooltip: {
+                            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+                        },
+                        plotOptions: {
+                            pie: {
+                                allowPointSelect: true,
+                                cursor: 'pointer',
+                                dataLabels: {
+                                    enabled: true,
+                                    format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                                    style: {
+                                        // color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                                    }
+                                }
+                            }
+                        },
+                        series: [{
+                            name: 'Stories(s)',
+                            colorByPoint: true,
+                            data: seriesData
+                        }]
+                    };
+                    this.Render(opts);
+                });
+
+                break;
+            }
+            case "AllAllocatedUnAllocatedEmployee": {
+                this.dashBoardService.GetAllAllocatedUnAllocatedEmployee().subscribe((seriesData: any) => {
+                    opts = {};
+                    opts = {
+                        title: {
+                            text: 'Allocated v/s Total Employee(s)',
+                            x: -20 //center
+                        },
+                        tooltip: {
+                            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+                        },
+                        plotOptions: {
+                            pie: {
+                                allowPointSelect: true,
+                                cursor: 'pointer',
+                                dataLabels: {
+                                    enabled: true,
+                                    format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                                    style: {
+                                        // color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                                    }
+                                }
+                            }
+                        },
+                        series: [{
+                            name: 'Stories(s)',
+                            colorByPoint: true,
+                            data: seriesData
+                        }]
+                    };
+                    this.Render(opts);
+                });
+
+                break;
+            }
             default: {
                 //statements; 
                 break;
