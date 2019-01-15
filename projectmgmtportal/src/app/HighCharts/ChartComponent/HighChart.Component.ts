@@ -30,7 +30,7 @@ export class HighChartComponent implements OnInit {
                     opts = {};
                     opts = {
                         title: {
-                            text: 'Completed/InProgress Projects',
+                            text: 'Completed/InProgress Project(s)',
                             x: -20 //center
                         },
                         tooltip: {
@@ -80,7 +80,7 @@ export class HighChartComponent implements OnInit {
                     opts = {};
                     opts = {
                         title: {
-                            text: 'Active Inactive Employees',
+                            text: 'Active/InActive Employee(s)',
                             x: -20 //center
                         },
                         tooltip: {
@@ -115,7 +115,7 @@ export class HighChartComponent implements OnInit {
                     opts = {};
                     opts = {
                         title: {
-                            text: 'Active Inactive Stories',
+                            text: 'Active/InActive Storie(s)',
                             x: -20 //center
                         },
                         tooltip: {
@@ -150,7 +150,7 @@ export class HighChartComponent implements OnInit {
                     opts = {};
                     opts = {
                         title: {
-                            text: 'Allocated v/s Total Employee(s)',
+                            text: 'Allocated/Total Employee(s)',
                             x: -20 //center
                         },
                         tooltip: {

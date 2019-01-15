@@ -41,3 +41,17 @@ projectAllocation
 "C:\Program Files\MongoDB\Server\3.2\bin\mongod.exe" --dbpath C:\ArvindSinghChandel\Angualr\Day6-App\PMP\NodeAPIServer\data
 
 C:\Program Files\MongoDB\Server\4.0\bin mongod --dbpath E:\Dropbox\Projects\Angular2\SyneTraining\Angular\MYAssignment\PravenAssignement\MY\NodeAPIServer\data
+
+https://mlab.com/
+arry.net@gmail.com
+G@@@@@@
+
+create one user 
+userID: user123
+PWD: user123
+Address :ds157654.mlab.com 
+port :57654
+Authtenication
+	userID: user123
+	PWD: user123
+
