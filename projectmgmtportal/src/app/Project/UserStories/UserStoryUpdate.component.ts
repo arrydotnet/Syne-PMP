@@ -85,7 +85,6 @@ export class UserStoryUpdateComponent implements OnInit {
         this.UserStory.enddate = this.f.enddate.value;
         this.UserStory.storyPoints = this.f.storyPoints.value;
         this.UserStory._id = this.UserStoryEditID;//if edit 
-        debugger;
         if (this.UserStoryEditID.length > 0) {
             //this.UserStory._id = this.EditID;
             this.projectService.UpdateUserStory(this.UserStory).subscribe((data) => {
