@@ -1,6 +1,11 @@
 var fs = require('fs');
 const monk = require('monk');
-const db = monk('localhost/dbPMP');
+//const db = monk('localhost/dbPMP');
+const db = monk('mongodb://user123:user123@ds157654.mlab.com:57654/dbpmp');
+//mongodb://<dbuser>:<dbpassword>@ds157654.mlab.com:57654/dbpmp
+//mongodb://user123:user123@ds157654.mlab.com:57654/dbpmp
+
+
 const collection = db.get('project');
 const collectionProjAllocation = db.get('projectAllocation');
 const collectionProjectUserStories = db.get('projectUserStories');
@@ -135,6 +140,16 @@ module.exports.deleteStoryByID = function (sid) {
         });
     });
 }
+module.exports.GetAllUserStory = function () {
+    return new Promise((resolve, reject) => {
+        collectionProjectUserStories.find({}).then(function (data) {
+            resolve(data);
+        }, function (err) {
+            console.log('[GetAllOpenFinishedStories Error]!:', err);
+            reject("Connection Error...");
+        });
+    });
+}
 //--add task 
 module.exports.addTask = function (obj) {
     return new Promise((resolve, reject) => {
@@ -199,7 +214,7 @@ module.exports.UpdateTask = function (tid, obj) {
 
 
 
-module.exports.CounteAllocatedEmployee = function () {
+module.exports.AllAllocatedEmployee = function () {
     var allocatedEmployee = 1;
     var totalEmployee = 0;
     var promise1 = new Promise((resolve, reject) => {
@@ -222,19 +237,13 @@ module.exports.CounteAllocatedEmployee = function () {
             reject("Connection Error...");
         });
     });
-    
-    Promise.all(promise1, promise2, function (resultsA, resultsB) {
-        return { "AllocatedEmployees": resultsA, "totalEmployees": resultsB };
-    })
-
-    // return new Promise((resolve, reject) => {
-    //     collectionUserStoryTasks.findOneAndUpdate({ _id: monk.id(tid) }, { $set: obj }).then(function (data) {
-    //         resolve(data);
-    //     }, function (err) {
-    //         console.log('[UpdateTask Error]!:', err);
-    //         reject("Connection Error...");
-    //     });
-    // });
+    return Promise.all([promise1, promise2]).then((value)=> {
+        // console.log('ALL------>');
+        // console.log('resultsA------>',value[0]);
+        // console.log('resultsA------>',value[1]);
+        var data ={ "AllAllocatedEmployee": value[0], "totalEmployees": value[1] };
+        return data;
+    }).catch(err => console.log(err));
 }
 
 
@@ -245,7 +254,6 @@ module.exports.SaveAllocatedProjectByEmployeeID = function (employeeID, projects
         console.log('--remove--')
         collectionProjAllocation.remove({ employeeID: monk.id(employeeID) }).then(function (data) {
             //after delete loop and  save
-            debugger;
             var emp = monk.id(employeeID);
             for (var i = 0; i < projects.length; i++) {
                 var empAlloc = {
@@ -263,5 +271,8 @@ module.exports.SaveAllocatedProjectByEmployeeID = function (employeeID, projects
         });
     });
 }
+
+
+
 
 

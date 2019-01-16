@@ -1,0 +1,232 @@
+UserStoryTasks
+/* 1 */
+{
+    "_id" : ObjectId("5c2dda0da43ed07db6ea9b80"),
+    "project_id" : "5c235591d4416dc4ddb1a7a5",
+    "storyID" : "5c2cc68c2275ce13f471ac7d",
+    "task_title" : "task 199",
+    "desc" : "task",
+    "completed" : false,
+    "startdate" : "01/01/2017",
+    "enddate" : "01/01/2018",
+    "assignedTo" : "99"
+}
+
+/* 2 */
+{
+    "_id" : ObjectId("5c2e068c1a3ec81858b5ad1a"),
+    "project_id" : "5c235591d4416dc4ddb1a7a5",
+    "storyID" : "5c2cc68c2275ce13f471ac7d",
+    "task_title" : "u",
+    "desc" : "u",
+    "completed" : true,
+    "startdate" : "",
+    "enddate" : "",
+    "assignedTo" : "u"
+}
+------------------------------------------------------------------
+employee
+/* 1 */
+{
+    "_id" : ObjectId("5c2359a9d4416dc4ddb1a9b9"),
+    "name" : "BBBBB",
+    "designation" : "Lead technology",
+    "disabled" : false,
+    "pwd" : "1234"
+}
+
+/* 2 */
+{
+    "_id" : ObjectId("5c2359a9d4416dc4ddb1a9bb"),
+    "name" : "CCCC",
+    "designation" : "Lead technology3",
+    "disabled" : false,
+    "pwd" : "1234"
+}
+
+/* 3 */
+{
+    "_id" : ObjectId("5c23838cd4416dc4ddb1bf54"),
+    "name" : "DDD",
+    "designation" : "Lead technology3",
+    "disabled" : false,
+    "pwd" : "1234"
+}
+
+/* 4 */
+{
+    "_id" : ObjectId("5c247ae2b47f04225894d8b1"),
+    "name" : "AA",
+    "designation" : "AA",
+    "disabled" : true,
+    "pwd" : "1234"
+}
+
+/* 5 */
+{
+    "_id" : ObjectId("5c247b1cb47f04225894d8b2"),
+    "name" : "EE6",
+    "designation" : "EE",
+    "disabled" : false,
+    "pwd" : "1234"
+}
+
+/* 6 */
+{
+    "_id" : ObjectId("5c24a10453e5e912ccbb73aa"),
+    "name" : "VX",
+    "designation" : "VXVX",
+    "disabled" : true,
+    "pwd" : "1234"
+}
+
+/* 7 */
+{
+    "_id" : ObjectId("5c2c72aa45e2912148ebfdea"),
+    "name" : "Ashish Chafle",
+    "designation" : "CEO",
+    "disabled" : true,
+    "pwd" : "1234"
+}
+
+/* 8 */
+{
+    "_id" : ObjectId("5c2c83bb45e2912148ebfdf7"),
+    "name" : "X",
+    "designation" : "XX",
+    "disabled" : false,
+    "pwd" : "1234"
+}
+
+/* 9 */
+{
+    "_id" : ObjectId("5c2c845d45e2912148ebfdf8"),
+    "name" : "FF",
+    "designation" : "FFF",
+    "disabled" : false,
+    "pwd" : "1234"
+}
+------------------------------------------------------------------
+project
+/* 1 */
+{
+    "_id" : ObjectId("5c235591d4416dc4ddb1a7a5"),
+    "project_id" : 100,
+    "project_name" : "Harley",
+    "desc" : "Harley Harley",
+    "completed" : true,
+    "startdate" : "2019-01-04",
+    "enddate" : "2019-01-31",
+    "hasUserStory" : true
+}
+
+/* 2 */
+{
+    "_id" : ObjectId("5c235591d4416dc4ddb1a7a7"),
+    "project_id" : 200,
+    "project_name" : "Project 2",
+    "desc" : "Kellogs",
+    "completed" : false,
+    "startdate" : "01/01/2017",
+    "enddate" : "01/01/2018",
+    "hasUserStory" : false
+}
+
+/* 3 */
+{
+    "_id" : ObjectId("5c235591d4416dc4ddb1a7a9"),
+    "project_id" : 300,
+    "project_name" : "Project 3",
+    "desc" : "Electrolux",
+    "completed" : false,
+    "startdate" : "01/01/2017",
+    "enddate" : "01/01/2018",
+    "hasUserStory" : false
+}
+
+/* 4 */
+{
+    "_id" : ObjectId("5c2c91f7d55e9a1d10728304"),
+    "project_id" : 600,
+    "project_name" : "Project600",
+    "desc" : "Project600 DESC",
+    "completed" : false,
+    "startdate" : "2019-01-02",
+    "enddate" : "2019-01-31",
+    "hasUserStory" : false
+}
+
+------------------------------------------------------------------
+projectAllocation
+/* 1 */
+{
+    "_id" : ObjectId("5c2e1631b3e20719f80d807d"),
+    "project_id" : 300,
+    "employeeID" : ObjectId("5c247b1cb47f04225894d8b2")
+}
+
+/* 2 */
+{
+    "_id" : ObjectId("5c2e1631b3e20719f80d807e"),
+    "project_id" : 600,
+    "employeeID" : ObjectId("5c247b1cb47f04225894d8b2")
+}
+
+/* 3 */
+{
+    "_id" : ObjectId("5c2e1636b3e20719f80d807f"),
+    "project_id" : 200,
+    "employeeID" : ObjectId("5c2359a9d4416dc4ddb1a9bb")
+}
+
+/* 4 */
+{
+    "_id" : ObjectId("5c2e163cb3e20719f80d8080"),
+    "project_id" : 300,
+    "employeeID" : ObjectId("5c247ae2b47f04225894d8b1")
+}
+
+/* 5 */
+{
+    "_id" : ObjectId("5c2e1641b3e20719f80d8081"),
+    "project_id" : 200,
+    "employeeID" : ObjectId("5c23838cd4416dc4ddb1bf54")
+}
+
+/* 6 */
+{
+    "_id" : ObjectId("5c2e1641b3e20719f80d8082"),
+    "project_id" : 300,
+    "employeeID" : ObjectId("5c23838cd4416dc4ddb1bf54")
+}
+
+/* 7 */
+{
+    "_id" : ObjectId("5c2e164bb3e20719f80d8085"),
+    "project_id" : 100,
+    "employeeID" : ObjectId("5c2359a9d4416dc4ddb1a9b9")
+}
+
+/* 8 */
+{
+    "_id" : ObjectId("5c2e164bb3e20719f80d8086"),
+    "project_id" : 200,
+    "employeeID" : ObjectId("5c2359a9d4416dc4ddb1a9b9")
+}
+------------------------------------------------------------------
+projectUserStories
+/* 1 */
+{
+    "_id" : ObjectId("5c2cc68c2275ce13f471ac7d"),
+    "storyID" : 1001,
+    "project_id" : "5c235591d4416dc4ddb1a7a5",
+    "story_title" : "Story 1001",
+    "desc" : "Story Desc  Story Desc  Story Desc  Story Desc  Story Desc  Story Desc  ",
+    "completed" : false,
+    "startdate" : "2019-01-02",
+    "enddate" : "2019-03-30",
+    "storyPoints" : 50
+}
+------------------------------------------------------------------
+
+------------------------------------------------------------------

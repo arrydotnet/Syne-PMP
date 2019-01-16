@@ -42,6 +42,7 @@ projectAllocation
 
 C:\Program Files\MongoDB\Server\4.0\bin mongod --dbpath E:\Dropbox\Projects\Angular2\SyneTraining\Angular\MYAssignment\PravenAssignement\MY\NodeAPIServer\data
 
+mongodb://<dbuser>:<dbpassword>@ds157654.mlab.com:57654/dbpmp
 https://mlab.com/
 arry.net@gmail.com
 G@@@@@@
